@@ -1,12 +1,17 @@
-import { Profile } from 'components/Profile';
-import user from './user.json';
+import { Profile } from 'components/profile/Profile';
+import { Statistics } from 'components/Statistics';
+
+import user from './profile/user.json';
+import data from './data.json';
+import { cloneElement } from 'react';
 
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+        // height: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
@@ -20,6 +25,9 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
       />
+
+      <Statistics title="Upload stats" stats={data} />
+      <Statistics stats={data} />
     </div>
   );
 };
