@@ -1,47 +1,34 @@
+import style from './Transaction.module.css';
+
 export const TransactionHistory = ({ items }) => (
-    <>
-  <table class="transaction-history">
-    <thead>
-    <tbody>
-      {items.map((item) => (
+  <table className={style.table}>
+    <Thead />
+    <tbody className={style.tbody}>
+      {items.map((prop, index) => (
         <Transaction
-          key={item.id}
-          type={item.type}
-          amount={item.amount}
-          currency={item.currency}
-          
+          key={prop.id}
+          type={prop.type}
+          amount={prop.amount}
+          currency={prop.currency}
+          index={index}
         ></Transaction>
       ))}
-      </thead>
     </tbody>
   </table>
-  </>
 );
 
-
-
-
+const Thead = () => (
+  <tr className="tr">
+    <th className={style.th}>Type</th>
+    <th className={style.th}>Amount</th>
+    <th className={style.th}>Currency</th>
+  </tr>
+);
 
 const Transaction = ({ id, type, amount, currency }) => (
-  
-    <tr>
-      <th>{type}</th>
-      <th>{amount}</th>
-      <th>{currency}</th>
-    </tr>
-  
-
-  
-    <tr>
-      <td>{type}</td>
-      <td>{amount}</td>
-      <td>{currency}</td>
-    </tr>
-    <tr>
-      <td>{type}</td>
-      <td>{amount}</td>
-      <td>{currency}</td>
-                
+  <tr className={style.tr}>
+    <td className={style.td}>{type}</td>
+    <td className={style.td}>{amount}</td>
+    <td className={style.td}>{currency}</td>
+  </tr>
 );
-
-
