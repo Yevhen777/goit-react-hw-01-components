@@ -1,9 +1,12 @@
 import { Profile } from 'components/profile/Profile';
-import { Statistics } from 'components/Statistics';
+import { Statistics } from 'components/statistics/Statistics';
+import { FriendList } from 'components/friendList/FriendList';
+import { TransactionHistory } from 'components/transaction/Transaction';
 
 import user from './profile/user.json';
-import data from './data.json';
-import { cloneElement } from 'react';
+import data from './statistics/data.json';
+import friends from './friendList/friends.json';
+import transactions from './transaction/transactions.json';
 
 export const App = () => {
   return (
@@ -25,9 +28,9 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
       />
-
       <Statistics title="Upload stats" stats={data} />
-      <Statistics stats={data} />
+      <FriendList friends={friends}></FriendList>
+      <TransactionHistory items={transactions} />;
     </div>
   );
 };
